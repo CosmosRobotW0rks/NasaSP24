@@ -37,7 +37,7 @@ const open = ref(false);
         <a href="/" class="text-lg group">
           
           
-        <span class="text-red-900 group-hover:text-red-400 transition-colors duration-300">Cosmos RW</span>
+        <span class="text-red-900 font-extrabold group-hover:text-red-400 transition-colors duration-300">Cosmos RW</span>
         </a>
         <div class="block lg:hidden">
           <button @click="open = !open" class="text-gray-800">

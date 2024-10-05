@@ -3,39 +3,6 @@ definePageMeta({
   layout: "landing",
 });
 
-const TeamImg1 = "https://source.unsplash.com/IF9TK5Uy-KI";
-const TeamImg2 = "https://source.unsplash.com/iEEBWgY_6lA";
-const TeamImg3 = "https://source.unsplash.com/ZHvM3XIOHoE";
-
-const team = [
-  {
-    name: "Janette Lynch",
-    title: "Senior Director",
-    avatar: {
-      src: TeamImg1,
-      width: 480,
-      height: 560,
-    },
-  },
-  {
-    name: "Marcell Ziemann",
-    title: "Principal Strategist",
-    avatar: {
-      src: TeamImg2,
-      width: 580,
-      height: 580,
-    },
-  },
-  {
-    name: "Robert Palmer",
-    title: "Marketing Engineer",
-    avatar: {
-      src: TeamImg3,
-      width: 580,
-      height: 580,
-    },
-  },
-];
 </script>
 
 <template>
@@ -45,15 +12,20 @@ const team = [
     </LandingSectionhead>
 
     <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
-      <p>
-        In 2019, a group from our school started a journey to make a significant impact in the community.<br/><br/>
-        What began as small steps has grown into a team with 2 mentors, 30 members, and many alumni.<br/><br/>
-        Our unique focus has always been on delivering STEM education to underserved parts of our community.<br/><br/>
-        We chose creative methods over standard approaches to reach overlooked segments of society.<br/><br/>
-        This strategy allowed us to make a "Cosmic Impact," reaching every corner of our community.<br/><br/>
-        As the "Stars of the Cosmos," our goal was to spread knowledge and opportunity in STEM, illuminating every dark corner.<br/><br/>
-        As stars align with planets, STEM becomes accessible to all.<br/><br/>
-        So, let's grab our telescopes and explore the Cosmos and our impact further!<br/><br/>
+      <p class = "text-2xl font-mono">
+        Hello there! <br>
+        We are Cosmos RW,<br>
+        a team of 6 high schoolers from Türkiye who are all passionate about exploring the mysteries of the <span class="font-bold text-red-900">Cosmos</span>. <br>
+        We decided that we wanted to share this passion and enthusiasm by kindling thoughts of wonder all around the world. <br>
+        Space is a vast dimension. <br>
+        In each spot we are able find bits of knowledge previously unknown to mankind. <br>
+        In this project, however, we focused on a particularly interesting aspect. <br>
+        EXOPLANETS <br>
+        Whether it is to find life or habitable worlds, exoplanets have always been a major point of research by scientists and space entuhsiasts all around the world. <br>
+        We wanted to ignite a spark of joy in the future engineers and scientist of the world by explaining this complex yet wonderful topic in a fun way. <br>
+        Through this website we offer 3 tools that we have created to the use of any child who wants to learn about exoplanets <br>
+        We aim to make this learning experience an efficient but also a very fun journey <br>
+
       </p>
     </div>
   </LandingContainer>
