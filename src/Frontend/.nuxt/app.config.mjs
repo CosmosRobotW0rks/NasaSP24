@@ -13,6 +13,6 @@ if (import.meta.hot) {
   })
 }
 
-import cfg0 from "C:/Dev/Github/NasaSP24/app.config.ts"
+import cfg0 from "C:/Dev/Github/NasaSP24/src/Frontend/app.config.ts"
 
 export default /*@__PURE__*/ defuFn(cfg0, inlineConfig)

@@ -70,14 +70,14 @@ export default {
 
 <style scoped>
 .chat-container {
-    max-width: 400px;
+    max-width: w-full;
     margin: 20px auto;
     padding: 10px;
     background-color: #f5f5f5;
     color: black;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    height: 500px;
+    height: 800px;
     display: flex;
     flex-direction: column;
 }
