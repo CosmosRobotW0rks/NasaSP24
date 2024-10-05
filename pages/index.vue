@@ -3,7 +3,7 @@ definePageMeta({
   layout: "landing",
 });
 useSeoMeta({
-  title: "CRW 7742",
+  title: "Cosmos RW",
   description:
     "Cosmos Robot Works, Team 7742 First Robotics Competition Website",
   ogTitle: "CRW 7742",

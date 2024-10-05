@@ -1,21 +1,22 @@
 <template>
-  <main class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-8">
-    <div class="p-24 md:order-1 hidden md:block">
-      <img class="rounded-full transition-transform transform hover:scale-125" src="~/assets/img/logo-colored.svg"
-        alt="Cosmos Robot Works Logo" loading="eager" format="avif" width="512" height="512" />
-    </div>
+  <main class="px-20 pt-10 pb-20 bg-red-950 text-white">
+    <div class="flex flex-col w-full justify-center items-center">
 
-    <div>
-      <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight text-red-800">
-        Cosmos Robot Works
-      </h1>
-      <p class="text-lg mt-4 text-slate-600 max-w-xl">
-        Cosmos Robot Works, <br />Nakkastpe Bahcesehir High School for Science and Technology
-        <wbr />
-      </p>
-      <div class="mt-6 flex flex-col sm:flex-row gap-3">
-        <LandingLink to="/projects" rel="noopener">Projects</LandingLink>
-        <LandingLink size="lg" styleName="outline" rel="noopener" href="/contact">Contact Us</LandingLink>
+      <div>
+        
+        <h1 class="text-5xl font-mono">Welcome To...</h1>
+        <div class="inline-block text-9xl mt-10">
+          <p>YOUR EXOPLANET</p>
+          <p class="text-right tracking-widest whitespace-nowrap">EXPLORATION</p>
+        </div>
+
+        <div>
+          !
+          <div class="absolute top-1/4 right-10  h-full flex items-stretch">
+            <p class="text-9xl h-full ml-4">!</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </main>
