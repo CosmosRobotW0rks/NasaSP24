@@ -7,7 +7,7 @@ definePageMeta({
 <template>
 
   <LandingContainer>
-    <main class="h-screen bg-red-950 text-white px-10 py-10 pt-10">
+    <main class="bg-red-950 text-white px-10 py-10 pt-10">
       <div class="flex flex-col items-start space-y-4">
 
         <div class="flex flex-col w-full justify-center items-center">
