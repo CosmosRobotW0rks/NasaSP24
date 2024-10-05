@@ -29,7 +29,7 @@ export default {
     data() {
         return {
             messages: [
-                { text: "Hey! I hear you wonder about exoplanets. How can I help you? ", type: "bot" },
+                { text: "Hi friend! I am your exoplanet assistant to help you generate more things to question about exoplanets. You know, this is the best way to learn! Give me any topic you would like to discover and I'll give you questions.", type: "bot" },
             ],
             newMessage: "",
         };

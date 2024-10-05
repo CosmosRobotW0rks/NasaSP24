@@ -11,7 +11,7 @@ const sponsors = [
 </script>
 
 <template>
-  <div class="bg-blue-950 h-128">
-
+  <div class="bg-blue-950 h-full flex justify-center justify-items-center ">
+    <iframe class="my-20" src="https://mentalcanvas.com/vm/nwg2g7y/Untitled" width="90%"  height="600" frameborder="0"></iframe>
   </div>
 </template>

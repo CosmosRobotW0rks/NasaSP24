@@ -12,7 +12,7 @@
 
         <div>
           
-          <div class="absolute top-1/4 right-10  h-full flex items-stretch">
+          <div class="absolute top-1/4 right-30  h-full flex items-stretch">
             <p class="text-9xl h-full ml-4">!</p>
           </div>
         </div>

@@ -18,7 +18,7 @@ definePageMeta({
           </div>
         </div>
 
-        <!-- Secondary text and note -->
+        
         <div class="text-4xl leading-snug space-y-4 flex flex-col w-full justify-center items-center pt-10">
           <p>✯ Let's meet <span class="font-bold">Miss.Exo</span> and get to</p>
           <p>know her story with <span class="font-bold">Exoplanets</span>!</p>
