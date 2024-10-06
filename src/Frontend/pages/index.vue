@@ -9,9 +9,10 @@ definePageMeta({
     <main>
     <div class="min-h-screen flex flex-col justify-center items-center bg-black">
       
-        <img src="" width="10%"   alt="Space Exploration" class="mx-auto block" />
+        <NuxtImg src="img/3.svg" width="100%" alt="Space Exploration" class="mx-auto block" />
 
-        <a href="/exoexplo" class="flex lg:px-3 py-2 text-white hover:text-red-950 hover:bg-white transition-all duration-300 hover:scale-105 bg-gray-600 rounded-xl" >Start Your Expolanet Exploration Journey!</a>
+        <a href="/exoexplo" class="flex lg:px-6 py-4 text-white bg-gray-800 hover:text-black hover:bg-white transition-all duration-300 transform hover:scale-105 rounded-xl shadow-lg hover:shadow-xl text-xl lg:text-2xl font-bold">Start Your Exoplanet Exploration Journey!</a>
+        
         
     </div>
     </main>

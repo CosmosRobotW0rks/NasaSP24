@@ -1,28 +1,32 @@
-<template>
-  <div class="flex justify-center items-center h-screen bg-black">
-    <!-- Background space -->
-    <div class="text-center relative">
-      <!-- Outer circle border -->
-      <div class="absolute inset-0 flex justify-center items-center">
-        <div class="w-64 h-64 border-2 border-red-500 rounded-full opacity-70"></div>
-      </div>
 
-      <!-- Text above the circle -->
-      <div class="text-white text-3xl font-bold">
-        <span>THIS IS </span>
-        <span class="text-cyan-400">YOUR</span>
-        <span> SPACE EXPLORATION</span>
-      </div>
-      
-      <!-- Glowing blue planet -->
-      <div class="mt-6">
-        <div class="relative flex justify-center items-center">
-          <div class="w-48 h-48 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full shadow-2xl"></div>
-          <div class="absolute text-white font-bold text-3xl">COSMOS RW</div>
+
+<template>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <main class="px-20 pt-10 pb-20 bg-red-950 text-white">
+    <div class="flex flex-col w-full justify-center items-center">
+
+      <div>
+
+        <h1 class="text-5xl font-mono">Welcome To...</h1>
+        <div class="inline-block text-9xl mt-10 bebas-neue-regular">
+          <p>YOUR EXOPLANET</p>
+          <p class="text-center tracking-widest whitespace-nowrap">EXPLORATION !</p>
         </div>
+
+        <div>
+
+          <div class="absolute top-1/4 right-30  h-full flex items-stretch">
+            
+          </div>
+        </div>
+
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>

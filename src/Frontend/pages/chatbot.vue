@@ -7,7 +7,7 @@ var SessionID = "";
 
 async function GenerateSID() {
     const response = await axios.post('http://localhost:5128/chatbot/createsession');
-    if(response.status != 200) console.log("Error while generating SID // response status is not 200");
+    if (response.status != 200) console.log("Error while generating SID // response status is not 200");
     SessionID = response.data;
     document.getElementById("session_id").value = SessionID;
 }
@@ -19,38 +19,38 @@ async function SENNDD() {
 
     if (msg.trim() === '') return;
 
-            // Add user's message to chat
-            this.messages.push({ text: msg, type: 'user' });
+    // Add user's message to chat
+    this.messages.push({ text: msg, type: 'user' });
 
-            try {
-                // Send the message to ASP.NET backend
+    try {
+        // Send the message to ASP.NET backend
 
-                console.log(msg);
+        console.log(msg);
 
-                const response = await axios.post(`http://localhost:5128/chatbot/message?sid=${SessionID}&message=${msg}`);
+        const response = await axios.post(`http://localhost:5128/chatbot/message?sid=${SessionID}&message=${msg}`);
 
-                // Add bot's response to chat
-                this.messages.push({ text: response.data, type: 'bot' });
-            } catch (error) {
-                console.error('Error sending message:', error);
-                this.messages.push({ text: 'Error communicating with bot', type: 'error' });
-            }
+        // Add bot's response to chat
+        this.messages.push({ text: response.data, type: 'bot' });
+    } catch (error) {
+        console.error('Error sending message:', error);
+        this.messages.push({ text: 'Error communicating with bot', type: 'error' });
+    }
 
-            // Clear the input
-            this.userMessage = '';
+    // Clear the input
+    this.userMessage = '';
 
-            // Scroll to the bottom
-            this.$nextTick(() => {
-                const container = this.$el.querySelector('.messages-container');
-                container.scrollTop = container.scrollHeight;
-            });
+    // Scroll to the bottom
+    this.$nextTick(() => {
+        const container = this.$el.querySelector('.messages-container');
+        container.scrollTop = container.scrollHeight;
+    });
 }
 
 GenerateSID();
 </script>
 
 <template>
-    <LandingContainer class = "bg-red-950">
+    <LandingContainer class="bg-red-950">
         <main class="max-h-full bg-red-950 text-white px-10 py-10 pt-10 min-h-screen">
             <div class="chat-container">
                 <div class="messages-container">
@@ -59,7 +59,7 @@ GenerateSID();
                     </div>
                 </div>
                 <div class="input-container">
-                    <input  id="text_input" v-model="userMessage" placeholder="Type a message..." @click="sendMessage" />
+                    <input id="text_input" v-model="userMessage" placeholder="Type a message..." @click="sendMessage" />
                     <input id="session_id" hidden>
                     <button @click=sendMessage>Send</button>
                 </div>
@@ -81,22 +81,46 @@ export default {
         };
     },
     mounted() {
-    // Disable scrolling on the page
-    //document.body.style.overflow = "hidden";
-  },
-  beforeUnmount() {
-    // Re-enable scrolling when the component is destroyed or user navigates away
-    document.body.style.overflow = "auto";
-  },
-    methods: {
+        // Disable scrolling on the page
+        //document.body.style.overflow = "hidden";
+    },
+    beforeUnmount() {
+        // Re-enable scrolling when the component is destroyed or user navigates away
+        document.body.style.overflow = "auto";
+    },
+    computed: {
+        dynamicWidth() {
+            const length = this.userInput.length;
+            let width = `${length * 2 + 10}px`; // Adjust size increment per char
+            // Ensure the width stays between minWidth and maxWidth
+            if (parseInt(width) > 500) {
+                width = '500px';
+            }
+            return {
+                minWidth: this.minWidth,
+                width: width
+            };
+        }
+    },
 
+    methods: {
+        getBubbleStyle(message) {
+            const textLength = message.length;
+
+            // Calculate width based on character count
+            const width = Math.min(Math.max(textLength * 8, 50), 500); // Minimum width of 50px, max of 500px
+
+            return {
+                width: `${width}px`
+            };
+        },
         async sendMessage() {
             const msg = document.getElementById("text_input").value;
             console.log("MESSSS");
             console.log(msg);
 
-    if (msg.trim() === '') return;
-            
+            if (msg.trim() === '') return;
+
             // Add user's message to chat
             this.messages.push({ text: msg, type: 'user' });
 
@@ -150,36 +174,41 @@ export default {
     flex-grow: 1;
     overflow-y: auto;
     margin-bottom: 10px;
-    
+
 }
 
 .user {
-  background-color: #007bff;
-  color: white;
-  text-align: right;
-  padding: 10px;
-  margin: 10px;
-  margin-left: auto;
-  border-radius: 20px 20px 5px 20px;
-  max-width: 60%; /* Set a max-width for larger messages */
-  word-wrap: break-word; /* Ensure long words wrap */
+    background-color: #007bff;
+    color: white;
+    text-align: right;
+    padding: 10px;
+    margin: 10px;
+    margin-left: auto;
+    border-radius: 20px 20px 5px 20px;
+    max-width: 15%;
+    /* Set a max-width for larger messages */
+    word-wrap: break-word;
+    
+    /* Ensure long words wrap */
 }
 
 .bot {
-  background-color: #ececec;
-  color: #333;
-  text-align: left;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 20px 20px 20px 5px;
-  max-width: 60%; /* Set a max-width for larger messages */
-  word-wrap: break-word;
+    background-color: #ececec;
+    color: #333;
+    text-align: left;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px 20px 20px 5px;
+    max-width: 60%;
+    /* Set a max-width for larger messages */
+    word-wrap: break-word;
 }
 
 
 .input-container {
     display: flex;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 input {

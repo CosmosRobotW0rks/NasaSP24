@@ -30,6 +30,14 @@ useHead({
 });
 </script>
 
+<style>
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+</style>
+
 <template>
   <LandingContainer>
     <LandingHero></LandingHero>
