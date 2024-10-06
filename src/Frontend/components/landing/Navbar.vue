@@ -34,9 +34,9 @@ const open = ref(false);
 
 <template>
   <LandingContainer>
-    <header class="flex flex-col lg:flex-row justify-between items-center  py-5 px-20">
-        
-      <div class="flex w-full lg:w-auto items-center justify-between">
+    <header class=" flex flex-col lg:flex-row justify-between items-center  py-5 px-20">
+      
+        <div class="flex w-full lg:w-auto items-center justify-between">
         <a href="/" class="text-lg group">
           
           
@@ -70,6 +70,7 @@ const open = ref(false);
           
         </ul>
       </nav>
+        
     </header>
   </LandingContainer>
 </template>

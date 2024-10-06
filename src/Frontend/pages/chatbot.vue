@@ -50,8 +50,8 @@ GenerateSID();
 </script>
 
 <template>
-    <LandingContainer class="bg-red-950">
-        <main class="max-h-full bg-red-950 text-white px-10 py-10 pt-10 min-h-screen">
+    <LandingContainer class="">
+        <main class="max-h-full text-white px-10 py-10 pt-10 min-h-screen" style="background-image: url('/img/cossmos');">
             <div class="chat-container">
                 <div class="messages-container">
                     <div class="whitespace-pre-line" v-for="(msg, index) in messages" :key="index" :class="msg.type">

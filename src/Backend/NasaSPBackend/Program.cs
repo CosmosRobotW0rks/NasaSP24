@@ -12,7 +12,7 @@ namespace NasaSPBackend
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.Configure<OpenAIConfiguration>(builder.Configuration.GetSection("DBConfig"));
+            builder.Services.Configure<OpenAIConfiguration>(builder.Configuration.GetSection("OpenAIConfig"));
 
             InitChatbotService(builder);
 
