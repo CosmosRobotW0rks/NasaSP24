@@ -174,6 +174,7 @@ export default {
     flex-grow: 1;
     overflow-y: auto;
     margin-bottom: 10px;
+    background-image: "/img/cosmos_background.PNG";
 
 }
 

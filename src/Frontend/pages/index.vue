@@ -17,7 +17,7 @@ definePageMeta({
           using data and innovative tools to inspire curiosity and exploration of distant worlds. <br>
           For more information check out the link below! </p>
         <a href="https://exoplanets.nasa.gov/exep/" class ="text-white text-center py-10 italic font-semibold">https://exoplanets.nasa.gov/exep/</a>  
-        <a href="/exoexplo"
+        <a href="/storybook"
           class="flex lg:px-6 py-4 mb-8 text-white bg-gray-800 hover:text-black hover:bg-white transition-all duration-300 transform hover:scale-105 rounded-xl shadow-lg hover:shadow-xl text-xl lg:text-2xl font-bold">Start
           Your OWN  Exoplanet Exploration Journey!</a>
 

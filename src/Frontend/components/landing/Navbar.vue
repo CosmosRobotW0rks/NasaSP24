@@ -6,7 +6,7 @@ const menuitems = [
   },
   {
     title:"Expolanet Storybook",
-    path: "/storybok"
+    path: "/storybook"
   },
   {
     title: "Your Exoplanet Exploration",
