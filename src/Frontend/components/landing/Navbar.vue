@@ -5,12 +5,12 @@ const menuitems = [
     path : "/"
   },
   {
-    title: "Your Exoplanet Exploration",
-    path: "/exoexplo",
-  },
-  {
     title:"Expolanet Storybook",
     path: "/storybok"
+  },
+  {
+    title: "Your Exoplanet Exploration",
+    path: "/exoexplo",
   },
   {
     title: "Chatbot",

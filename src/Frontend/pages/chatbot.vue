@@ -131,7 +131,7 @@ export default {
 
                 const SessionID = document.getElementById("session_id").value;
 
-                const response = await axios.post(`https://api.nasasp.cosmos7742.com/chatbot/message?sid=${SessionID}&message=${msg}`);
+                const response = await axios.post(`https://nasaspapi.cosmos7742.com/chatbot/message?sid=${SessionID}&message=${msg}`);
 
                 // Add bot's response to chat
                 this.messages.push({ text: response.data, type: 'bot' });

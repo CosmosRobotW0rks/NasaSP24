@@ -7,17 +7,11 @@
 <script setup>
 const route = useRouter();
 useSeoMeta({
-  title: "CRW 7742",
+  title: "Cosmos RW",
   description:
-    "Cosmos Robot Works, Team 7742 First Robotics Competition Website",
-  ogTitle: "CRW 7742",
-  ogDescription: "Cosmos Robot Works is an FRC team from Turkey.",
-  ogImage: "/hero.png",
-  ogUrl: "https://cosmos7742.com" + route.currentRoute.value.fullPath,
-  twitterTitle: "CRW",
-  twitterDescription: "Cosmos 7742",
-  twitterImage: "/hero.png",
-  twitterCard: "Cosmos Robot Works",
+    "Cosmos RW",
+  ogTitle: "Cosmos RW",
+  ogDescription: "Cosmos RW"
 });
 
 useHead({
