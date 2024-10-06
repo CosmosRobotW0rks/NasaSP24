@@ -861,6 +861,15 @@ const errorHandler = (async function errorhandler(error, event) {
   return send(event, html);
 });
 
+const _ndEoDX = defineEventHandler((event) => {
+  const headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "*",
+    "Access-Control-Allow-Headers": "*"
+  };
+  setHeaders(event, headers);
+});
+
 function buildAssetsDir() {
   return useRuntimeConfig().app.buildAssetsDir;
 }
@@ -894,6 +903,7 @@ const _5r5L1h = lazyEventHandler(() => {
 const _lazy_TqD1hU = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
+  { route: '', handler: _ndEoDX, lazy: false, middleware: true, method: undefined },
   { route: '/__nuxt_error', handler: _lazy_TqD1hU, lazy: true, middleware: false, method: undefined },
   { route: '/_ipx/**', handler: _5r5L1h, lazy: false, middleware: false, method: undefined },
   { route: '/**', handler: _lazy_TqD1hU, lazy: true, middleware: false, method: undefined }
