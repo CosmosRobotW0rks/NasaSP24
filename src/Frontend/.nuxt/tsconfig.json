@@ -84,7 +84,7 @@
         "../node_modules/nuxt/dist/app/compat/vue-demi"
       ],
       "#icon-collections": [
-        "./icon-collections.mjs"
+        "./icon-collections"
       ],
       "#image": [
         "../node_modules/@nuxt/image/dist/runtime"
@@ -99,7 +99,7 @@
         "./imports"
       ],
       "#app-manifest": [
-        "./manifest/meta/dev.json"
+        "./manifest/meta/dev"
       ],
       "#build": [
         "."

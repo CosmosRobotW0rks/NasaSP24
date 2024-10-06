@@ -1,9 +1,12 @@
 <script lang="ts" setup>
 const menuitems = [
-
+  {
+    title : "Home",
+    path : "/"
+  },
   {
     title: "Your Exoplanet Exploration",
-    path: "/",
+    path: "/exoexplo",
   },
   {
     title:"Expolanet Storybook",

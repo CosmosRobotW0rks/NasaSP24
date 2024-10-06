@@ -2,37 +2,29 @@
 definePageMeta({
   layout: "landing",
 });
-useSeoMeta({
-  title: "Cosmos RW",
-  description:
-    "Cosmos Robot Works, Team 7742 First Robotics Competition Website",
-  ogTitle: "CRW 7742",
-  ogDescription: "Cosmos Robot Works is an FRC team from Turkey.",
-  ogImage: "/hero.png",
-  ogUrl: "https://cosmos7742.com",
-  twitterTitle: "CRW",
-  twitterDescription: "Cosmos 7742",
-  twitterImage: "/hero.png",
-  twitterCard: "Cosmos Robot Works",
-});
-
-useHead({
-  htmlAttrs: {
-    lang: "tr",
-  },
-  link: [
-    {
-      rel: "icon",
-      type: "image/x-icon",
-      href: "/favicon.ico",
-    },
-  ],
-});
 </script>
 
 <template>
-  <LandingContainer>
-    <LandingHero></LandingHero>
-    <LandingFeatures></LandingFeatures>
-  </LandingContainer>
-</template>
+    <LandingContainer>
+    <main>
+    <div class="min-h-screen flex flex-col justify-center items-center bg-black">
+      
+        <img src="" width="10%"   alt="Space Exploration" class="mx-auto block" />
+
+        <a href="/exoexplo" class="flex lg:px-3 py-2 text-white hover:text-red-950 hover:bg-white transition-all duration-300 hover:scale-105 bg-gray-600 rounded-xl" >Start Your Expolanet Exploration Journey!</a>
+        
+    </div>
+    </main>
+    </LandingContainer>
+  </template>
+  
+  <script>
+  export default {
+    name: 'SpaceExploration',
+  };
+  </script>
+  
+  <style scoped>
+
+  </style>
+  

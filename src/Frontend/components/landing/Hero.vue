@@ -1,23 +1,36 @@
 <template>
-  <main class="px-20 pt-10 pb-20 bg-red-950 text-white">
-    <div class="flex flex-col w-full justify-center items-center">
+  <div class="flex justify-center items-center h-screen bg-black">
+    <!-- Background space -->
+    <div class="text-center relative">
+      <!-- Outer circle border -->
+      <div class="absolute inset-0 flex justify-center items-center">
+        <div class="w-64 h-64 border-2 border-red-500 rounded-full opacity-70"></div>
+      </div>
 
-      <div>
-        
-        <h1 class="text-5xl font-mono">Welcome To...</h1>
-        <div class="inline-block text-9xl mt-10">
-          <p>YOUR EXOPLANET</p>
-          <p class="text-right tracking-widest whitespace-nowrap">EXPLORATION</p>
+      <!-- Text above the circle -->
+      <div class="text-white text-3xl font-bold">
+        <span>THIS IS </span>
+        <span class="text-cyan-400">YOUR</span>
+        <span> SPACE EXPLORATION</span>
+      </div>
+      
+      <!-- Glowing blue planet -->
+      <div class="mt-6">
+        <div class="relative flex justify-center items-center">
+          <div class="w-48 h-48 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full shadow-2xl"></div>
+          <div class="absolute text-white font-bold text-3xl">COSMOS RW</div>
         </div>
-
-        <div>
-          
-          <div class="absolute top-1/4 right-30  h-full flex items-stretch">
-            <p class="text-9xl h-full ml-4">!</p>
-          </div>
-        </div>
-
       </div>
     </div>
-  </main>
+  </div>
 </template>
+
+<script>
+export default {
+  name: "SpaceExploration",
+};
+</script>
+
+<style>
+/* Tailwind CSS will take care of most styling, you can add extra if necessary */
+</style>

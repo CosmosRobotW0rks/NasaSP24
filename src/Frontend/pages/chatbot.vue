@@ -2,20 +2,66 @@
 definePageMeta({
     layout: "landing",
 });
+
+var SessionID = "";
+
+async function GenerateSID() {
+    const response = await axios.post('http://localhost:5128/chatbot/createsession');
+    if(response.status != 200) console.log("Error while generating SID // response status is not 200");
+    SessionID = response.data;
+    document.getElementById("session_id").value = SessionID;
+}
+
+async function SENNDD() {
+    const msg = document.getElementById("text_input").value;
+    console.log("MESSSS");
+    console.log(msg);
+
+    if (msg.trim() === '') return;
+
+            // Add user's message to chat
+            this.messages.push({ text: msg, type: 'user' });
+
+            try {
+                // Send the message to ASP.NET backend
+
+                console.log(msg);
+
+                const response = await axios.post(`http://localhost:5128/chatbot/message?sid=${SessionID}&message=${msg}`);
+
+                // Add bot's response to chat
+                this.messages.push({ text: response.data, type: 'bot' });
+            } catch (error) {
+                console.error('Error sending message:', error);
+                this.messages.push({ text: 'Error communicating with bot', type: 'error' });
+            }
+
+            // Clear the input
+            this.userMessage = '';
+
+            // Scroll to the bottom
+            this.$nextTick(() => {
+                const container = this.$el.querySelector('.messages-container');
+                container.scrollTop = container.scrollHeight;
+            });
+}
+
+GenerateSID();
 </script>
 
 <template>
     <LandingContainer class = "bg-red-950">
-        <main class="bg-red-950 text-white px-10 py-10 pt-10 min-h-screen">
+        <main class="max-h-full bg-red-950 text-white px-10 py-10 pt-10 min-h-screen">
             <div class="chat-container">
                 <div class="messages-container">
-                    <div v-for="(msg, index) in messages" :key="index" :class="msg.type">
+                    <div class="whitespace-pre-line" v-for="(msg, index) in messages" :key="index" :class="msg.type">
                         {{ msg.text }}
                     </div>
                 </div>
                 <div class="input-container">
-                    <input v-model="userMessage" placeholder="Type a message..." @keyup.enter="sendMessage" />
-                    <button @click="sendMessage">Send</button>
+                    <input  id="text_input" v-model="userMessage" placeholder="Type a message..." @click="sendMessage" />
+                    <input id="session_id" hidden>
+                    <button @click=sendMessage>Send</button>
                 </div>
             </div>
         </main>
@@ -34,18 +80,34 @@ export default {
             newMessage: "",
         };
     },
+    mounted() {
+    // Disable scrolling on the page
+    //document.body.style.overflow = "hidden";
+  },
+  beforeUnmount() {
+    // Re-enable scrolling when the component is destroyed or user navigates away
+    document.body.style.overflow = "auto";
+  },
     methods: {
-        async sendMessage() {
-            if (this.userMessage.trim() === '') return;
 
+        async sendMessage() {
+            const msg = document.getElementById("text_input").value;
+            console.log("MESSSS");
+            console.log(msg);
+
+    if (msg.trim() === '') return;
+            
             // Add user's message to chat
-            this.messages.push({ text: this.userMessage, type: 'user' });
+            this.messages.push({ text: msg, type: 'user' });
 
             try {
                 // Send the message to ASP.NET backend
-                const response = await axios.post('https://localhost:5001/api/Chatbot/sendMessage', {
-                    message: this.userMessage
-                });
+
+                console.log(msg);
+
+                const SessionID = document.getElementById("session_id").value;
+
+                const response = await axios.post(`http://localhost:5128/chatbot/message?sid=${SessionID}&message=${msg}`);
 
                 // Add bot's response to chat
                 this.messages.push({ text: response.data, type: 'bot' });
@@ -68,45 +130,50 @@ export default {
 };
 </script>
 
+
 <style scoped>
 .chat-container {
     max-width: w-full;
     margin: 20px auto;
     padding: 10px;
-    background-color: #f5f5f5;
+    background-color: rgba(0, 0, 0, 0);
     color: black;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     height: 800px;
     display: flex;
     flex-direction: column;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .messages-container {
     flex-grow: 1;
     overflow-y: auto;
     margin-bottom: 10px;
+    
 }
 
 .user {
-    background-color: #007bff;
-    color: white;
-    text-align: right;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 20px 20px 5px 20px;
-    word-wrap: break-word;
-    /* Ensure long words break within bubbles */
+  background-color: #007bff;
+  color: white;
+  text-align: right;
+  padding: 10px;
+  margin: 10px;
+  margin-left: auto;
+  border-radius: 20px 20px 5px 20px;
+  max-width: 60%; /* Set a max-width for larger messages */
+  word-wrap: break-word; /* Ensure long words wrap */
 }
 
 .bot {
-    background-color: #ececec;
-    color: #333;
-    text-align: left;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 20px 20px 20px 5px;
-    word-wrap: break-word;
+  background-color: #ececec;
+  color: #333;
+  text-align: left;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 20px 20px 20px 5px;
+  max-width: 60%; /* Set a max-width for larger messages */
+  word-wrap: break-word;
 }
 
 

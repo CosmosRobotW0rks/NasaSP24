@@ -25,7 +25,7 @@ definePageMeta({
         We wanted to ignite a spark of joy in the future engineers and scientist of the world by explaining this complex yet wonderful topic in a fun way. <br>
         Through this website we offer 3 tools that we have created to the use of any child who wants to learn about exoplanets <br>
         We aim to make this learning experience an efficient but also a very fun journey. <br>
-
+          
       </p>
     </div>
   </main>
