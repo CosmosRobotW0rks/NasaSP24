@@ -6,10 +6,25 @@ definePageMeta({
 var SessionID = "";
 
 async function GenerateSID() {
+    try
+    {
     const response = await axios.post('https://nasaspapi.cosmos7742.com/chatbot/createsession');
-    if (response.status != 200) console.log("Error while generating SID // response status is not 200");
+    if (response.status != 200)
+    {
+        console.log("Error while generating SID // response status is not 200");
+        return false;
+    }
     SessionID = response.data;
     document.getElementById("session_id").value = SessionID;
+    }
+    catch
+    {
+        console.log("Oops.. Something went wrong")
+        return false;
+    }
+    
+
+    return true;
 }
 
 async function SENNDD() {
@@ -46,20 +61,23 @@ async function SENNDD() {
     });
 }
 
-GenerateSID();
+if(!await GenerateSID())
+{
+    reloadNuxtApp();
+}
 </script>
 
 <template>
     <LandingContainer class="">
-        <main class="max-h-full text-white px-10 py-10 pt-10 min-h-screen" style="background-image: url('/img/cossmos');">
-            <div class="chat-container">
+        <main class="max-h-full bg-black text-white px-10 py-10 pt-10 min-h-screen" style="background-image: url('/img/cossmos');">
+            <div class="chat-container ">
                 <div class="messages-container">
                     <div class="whitespace-pre-line" v-for="(msg, index) in messages" :key="index" :class="msg.type">
                         {{ msg.text }}
                     </div>
                 </div>
                 <div class="input-container">
-                    <input id="text_input" v-model="userMessage" placeholder="Type a message..." @click="sendMessage" />
+                    <input id="text_input" v-model="userMessage" placeholder="Type a message..."/>
                     <input id="session_id" hidden>
                     <button @click=sendMessage>Send</button>
                 </div>
@@ -160,7 +178,6 @@ export default {
     max-width: w-full;
     margin: 20px auto;
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0);
     color: black;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -168,14 +185,20 @@ export default {
     display: flex;
     flex-direction: column;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-image: url("/img/cossmos.jpg");
+
+    
+    
+    
 }
 
 .messages-container {
     flex-grow: 1;
     overflow-y: auto;
     margin-bottom: 10px;
-    background-image: "/img/cosmos_background.PNG";
-
+    background-size: cover; /* Ensure the background covers the entire container */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Avoid repeating the image */
 }
 
 .user {
