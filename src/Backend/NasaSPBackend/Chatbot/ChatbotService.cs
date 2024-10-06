@@ -1,4 +1,6 @@
-﻿using NasaSPBackend.Chatbot.ChatbotSessionTracker;
+﻿using Microsoft.Extensions.Options;
+using NasaSPBackend.Chatbot.ChatbotSessionTracker;
+using NasaSPBackend.Configurations;
 using OpenAI;
 using OpenAI.Assistants;
 using System.Text;
@@ -13,18 +15,20 @@ namespace NasaSPBackend.Chatbot
 
         private readonly ChatbotSessionTrackerService _tracker;
         private readonly ILogger<ChatbotService> _logger;
+        private readonly OpenAIConfiguration _config;
 
         private OpenAIClient client;
 
-        public ChatbotService(IServiceProvider services, ILogger<ChatbotService> logger)
+        public ChatbotService(IServiceProvider services, ILogger<ChatbotService> logger, IOptions<OpenAIConfiguration> config)
         {
             var serv = services.CreateScope().ServiceProvider.GetRequiredService<ChatbotSessionTrackerService>();
 
             _tracker = services.GetRequiredService<ChatbotSessionTrackerService>();
             _logger = logger;
+            _config = config.Value;
 
 
-            client = new(key);
+            client = new(_config.APIKey);
         }
 
         public ChatbotSession CreateSession()
@@ -45,7 +49,7 @@ namespace NasaSPBackend.Chatbot
 
             var msg = assistantCli.CreateMessage(session.OpenAIThreadID, OpenAI.Assistants.MessageRole.User, [MessageContent.FromText(message)]).Value;
 
-            var run = assistantCli.CreateRun(session.OpenAIThreadID, assistantID).Value;
+            var run = assistantCli.CreateRun(session.OpenAIThreadID, _config.AssistantID).Value;
 
             while(run.Status == RunStatus.Queued || run.Status == RunStatus.InProgress)
             {

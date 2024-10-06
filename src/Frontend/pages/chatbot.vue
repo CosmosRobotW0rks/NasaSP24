@@ -6,7 +6,7 @@ definePageMeta({
 var SessionID = "";
 
 async function GenerateSID() {
-    const response = await axios.post('http://localhost:5128/chatbot/createsession');
+    const response = await axios.post('https://nasaspapi.cosmos7742.com/chatbot/createsession');
     if (response.status != 200) console.log("Error while generating SID // response status is not 200");
     SessionID = response.data;
     document.getElementById("session_id").value = SessionID;
@@ -27,7 +27,7 @@ async function SENNDD() {
 
         console.log(msg);
 
-        const response = await axios.post(`http://localhost:5128/chatbot/message?sid=${SessionID}&message=${msg}`);
+        const response = await axios.post(`https://nasaspapi.cosmos7742.com/chatbot/message?sid=${SessionID}&message=${msg}`);
 
         // Add bot's response to chat
         this.messages.push({ text: response.data, type: 'bot' });
@@ -131,7 +131,7 @@ export default {
 
                 const SessionID = document.getElementById("session_id").value;
 
-                const response = await axios.post(`http://localhost:5128/chatbot/message?sid=${SessionID}&message=${msg}`);
+                const response = await axios.post(`https://api.nasasp.cosmos7742.com/chatbot/message?sid=${SessionID}&message=${msg}`);
 
                 // Add bot's response to chat
                 this.messages.push({ text: response.data, type: 'bot' });

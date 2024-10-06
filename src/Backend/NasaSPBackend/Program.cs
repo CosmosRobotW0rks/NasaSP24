@@ -1,6 +1,8 @@
 
+using Microsoft.Extensions.Configuration;
 using NasaSPBackend.Chatbot;
 using NasaSPBackend.Chatbot.ChatbotSessionTracker;
+using NasaSPBackend.Configurations;
 
 namespace NasaSPBackend
 {
@@ -10,6 +12,7 @@ namespace NasaSPBackend
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Services.Configure<OpenAIConfiguration>(builder.Configuration.GetSection("DBConfig"));
 
             InitChatbotService(builder);
 
